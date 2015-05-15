@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+
+	default-init-method="initObject" default-destroy-method="destroyObject">
+
+
+	<bean id="t1000" class="ua.maventraing.compareoop.robot.ModelT1000"
+		p:head-ref="sonyHead" p:hand-ref="sonyHand" p:leg-ref="toshibaLeg"
+		p:color="silver" p:soundEnabled="true" p:year="2010">
+		<!-- <constructor-arg ref="sonyHead"></constructor-arg> -->
+		<!-- <constructor-arg ref="sonyHand"></constructor-arg> -->
+		<!-- <constructor-arg ref="sonyLeg"></constructor-arg> -->
+
+		<!-- <constructor-arg value="yellow" index="0" type="String"/> -->
+		<!-- <constructor-arg value="2010" index="1" type="int" /> -->
+		<!-- <constructor-arg value="true" index="2" type="boolean"/> -->
+
+		<!-- <property name="head" ref="toshibaHead"></property> -->
+		<!-- <property name="hand" ref="toshibaHand"></property> -->
+		<!-- <property name="leg" ref="toshibaLeg"></property> -->
+	</bean>
+
+	<bean id="t1000Empty" class="ua.maventraing.compareoop.robot.ModelT1000"
+		c:color="silver" c:year="2000" c:soundEnabled="false" c:head-ref="sonyHead"
+		c:hand-ref="toshibaHand" c:leg-ref="toshibaLeg">
+		<!-- init-method="initObject" -->
+		<!-- destroy-method="destroyObject"> -->
+
+	</bean>
+
+	<bean id="sonyHead" class="ua.maventraing.compareoop.spares.sonyspares.SonyHead" />
+	<bean id="sonyHand" class="ua.maventraing.compareoop.spares.sonyspares.SonyHand" />
+	<bean id="sonyLeg" class="ua.maventraing.compareoop.spares.sonyspares.SonyLeg" />
+
+	<bean id="toshibaHead"
+		class="ua.maventraing.compareoop.spares.toshibaspares.ToshibaHead" />
+	<bean id="toshibaHand"
+		class="ua.maventraing.compareoop.spares.toshibaspares.ToshibaHand" />
+	<bean id="toshibaLeg"
+		class="ua.maventraing.compareoop.spares.toshibaspares.ToshibaLeg" />
+</beans>
