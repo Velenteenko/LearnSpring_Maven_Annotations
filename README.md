@@ -1,0 +1,3 @@
+# LearnMavenSpring
+This project showing using Maven with Spring Framework in Eclipse IDE 
+...
