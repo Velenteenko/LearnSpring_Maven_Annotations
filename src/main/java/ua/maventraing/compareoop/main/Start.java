@@ -12,16 +12,17 @@ public class Start {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		context = new ClassPathXmlApplicationContext("ApplicationContext.xml");
+		context = new ClassPathXmlApplicationContext("All_Context.xml");
 		// Object object = context.getBean("for_model_t1000");
-		Object object = context.getBean("t1000");
+		// Object object = context.getBean("t1000");
 
-		if (object instanceof ModelT1000) {
-			ModelT1000 t1000 = (ModelT1000) object;
-			// t1000.dance();
-			t1000.fire();
-		}
-
+		// if (object instanceof ModelT1000) {
+		// ModelT1000 t1000 = (ModelT1000) object;
+		// // t1000.dance();
+		// t1000.fire();
+		// }
+		ModelT1000 t1000 = (ModelT1000) context.getBean("t1000");
+		t1000.fire();
 	}
 
 }

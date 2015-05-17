@@ -4,12 +4,20 @@
 	xmlns:c="http://www.springframework.org/schema/c"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
 
-	default-init-method="initObject" default-destroy-method="destroyObject">
+	default-lazy-init="true">
+
+	<!-- можно initObject и destroyObject вызывать вручную добавив в корень 
+		бина default-init-method, default-destroy-method -->
+	<!-- можно обьявлять и в классе имплементируя методы InitializingBean, -->
+	<!-- DisposableBean тогда они будут доступны только для этогокласса -->
+
+	<!-- инициализация построцессора бинов с помощью безимянного бина -->
+	<bean class="ua.maventraing.compareoop.main.BeanPostProc" />
 
 
 	<bean id="t1000" class="ua.maventraing.compareoop.robot.ModelT1000"
 		p:head-ref="sonyHead" p:hand-ref="sonyHand" p:leg-ref="toshibaLeg"
-		p:color="silver" p:soundEnabled="true" p:year="2010">
+		p:color="silver" p:soundEnabled="true" p:year="2010" lazy-init="true">
 		<!-- <constructor-arg ref="sonyHead"></constructor-arg> -->
 		<!-- <constructor-arg ref="sonyHand"></constructor-arg> -->
 		<!-- <constructor-arg ref="sonyLeg"></constructor-arg> -->
@@ -25,7 +33,7 @@
 
 	<bean id="t1000Empty" class="ua.maventraing.compareoop.robot.ModelT1000"
 		c:color="silver" c:year="2000" c:soundEnabled="false" c:head-ref="sonyHead"
-		c:hand-ref="toshibaHand" c:leg-ref="toshibaLeg">
+		c:hand-ref="toshibaHand" c:leg-ref="toshibaLeg" lazy-init="true">
 		<!-- init-method="initObject" -->
 		<!-- destroy-method="destroyObject"> -->
 

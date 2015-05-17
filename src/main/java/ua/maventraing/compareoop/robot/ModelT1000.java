@@ -33,7 +33,8 @@ public class ModelT1000 implements Robot {
 		this.soundEnabled = soundEnabled;
 	}
 
-	public ModelT1000(Hand hand, Head head, Leg leg, String color, int year, boolean soundEnabled) {
+	public ModelT1000(Hand hand, Head head, Leg leg, String color, int year,
+			boolean soundEnabled) {
 		super();
 		this.hand = hand;
 		this.head = head;
@@ -109,6 +110,14 @@ public class ModelT1000 implements Robot {
 	public void dance() {
 		// TODO Auto-generated method stub
 		System.out.println("T1000 is dancing!");
+	}
+
+	public void initObject() {
+		System.out.println("Init object T1000");
+	}
+
+	public void destroyObject() {
+		System.out.println("Destroy object T1000");
 	}
 
 }
