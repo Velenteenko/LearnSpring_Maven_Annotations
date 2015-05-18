@@ -9,27 +9,49 @@
 	<!-- можно initObject и destroyObject вызывать вручную добавив в корень 
 		бина default-init-method, default-destroy-method -->
 	<!-- можно обьявлять и в классе имплементируя методы InitializingBean, -->
-	<!-- DisposableBean тогда они будут доступны только для этогокласса -->
+	<!-- DisposableBean тогда они будут доступны только для этого класса -->
 
 	<!-- инициализация построцессора бинов с помощью безимянного бина -->
 	<bean class="ua.maventraing.compareoop.main.BeanPostProc" />
 
 
+
+
+	<!-- depends-on="databaseBean" показывает, что перед инициализацией бина 
+		в котором вызван, необходимо вызвать указанный бин -->
+
+	<!-- <bean id="t1000" class="ua.maventraing.compareoop.robot.ModelT1000" -->
+	<!-- p:head-ref="sonyHead" p:hand-ref="sonyHand" p:leg-ref="toshibaLeg" -->
+	<!-- p:color="silver" p:soundEnabled="true" p:year="2010" lazy-init="true"> -->
+
+	<!-- <constructor-arg ref="sonyHead"></constructor-arg> -->
+	<!-- <constructor-arg ref="sonyHand"></constructor-arg> -->
+	<!-- <constructor-arg ref="sonyLeg"></constructor-arg> -->
+
+
+
+	<!-- вызов конструктора и определение родительского конструктора -->
 	<bean id="t1000" class="ua.maventraing.compareoop.robot.ModelT1000"
-		p:head-ref="sonyHead" p:hand-ref="sonyHand" p:leg-ref="toshibaLeg"
-		p:color="silver" p:soundEnabled="true" p:year="2010" lazy-init="true">
-		<!-- <constructor-arg ref="sonyHead"></constructor-arg> -->
-		<!-- <constructor-arg ref="sonyHand"></constructor-arg> -->
-		<!-- <constructor-arg ref="sonyLeg"></constructor-arg> -->
+		lazy-init="true" parent="baseModel">
+		<constructor-arg value="red" />
+		<constructor-arg value="2012" />
+		<constructor-arg value="false" />
 
-		<!-- <constructor-arg value="yellow" index="0" type="String"/> -->
-		<!-- <constructor-arg value="2010" index="1" type="int" /> -->
-		<!-- <constructor-arg value="true" index="2" type="boolean"/> -->
-
-		<!-- <property name="head" ref="toshibaHead"></property> -->
-		<!-- <property name="hand" ref="toshibaHand"></property> -->
+<!-- 		<property name="head" ref="toshibaHead"></property> -->
+		<property name="hand" ref="toshibaHand"></property>
 		<!-- <property name="leg" ref="toshibaLeg"></property> -->
 	</bean>
+
+
+
+	<bean id="baseModel" abstract="true">
+		<constructor-arg ref="sonyHead" />
+		<constructor-arg ref="sonyHand" />
+		<constructor-arg ref="toshibaLeg" />
+	</bean>
+
+
+
 
 	<bean id="t1000Empty" class="ua.maventraing.compareoop.robot.ModelT1000"
 		c:color="silver" c:year="2000" c:soundEnabled="false" c:head-ref="sonyHead"
@@ -43,10 +65,9 @@
 	<bean id="sonyHand" class="ua.maventraing.compareoop.spares.sonyspares.SonyHand" />
 	<bean id="sonyLeg" class="ua.maventraing.compareoop.spares.sonyspares.SonyLeg" />
 
-	<bean id="toshibaHead"
-		class="ua.maventraing.compareoop.spares.toshibaspares.ToshibaHead" />
-	<bean id="toshibaHand"
-		class="ua.maventraing.compareoop.spares.toshibaspares.ToshibaHand" />
-	<bean id="toshibaLeg"
-		class="ua.maventraing.compareoop.spares.toshibaspares.ToshibaLeg" />
+	<bean id="toshibaHead" class="ua.maventraing.compareoop.spares.toshibaspares.ToshibaHead" />
+	<bean id="toshibaHand" class="ua.maventraing.compareoop.spares.toshibaspares.ToshibaHand" />
+	<bean id="toshibaLeg" class="ua.maventraing.compareoop.spares.toshibaspares.ToshibaLeg" />
+		
+		
 </beans>
