@@ -32,7 +32,7 @@
 
 	<!-- вызов конструктора и определение родительского конструктора -->
 	<bean id="t1000" class="ua.maventraing.compareoop.robot.ModelT1000"
-		lazy-init="true" parent="baseModel">
+		parent="baseModel" scope="prototype">
 		<constructor-arg value="red" />
 		<constructor-arg value="2012" />
 		<constructor-arg value="false" />
