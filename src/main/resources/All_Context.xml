@@ -6,6 +6,6 @@
 	<import resource="T1000Context.xml" />
 	<import resource="dbContext.xml"/>
 	<import resource="T1000ConveyorContext.xml"/>
-	
+	<import resource="T1000Pool.xml"/>
 	
 </beans>

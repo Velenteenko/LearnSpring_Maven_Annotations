@@ -5,6 +5,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import ua.maventraing.compareoop.interfaces.Robot;
 import ua.maventraing.compareoop.interfaces.RobotConveyor;
+import ua.maventraing.compareoop.pools.T1000robotPool;
 
 public class Start {
 
@@ -32,6 +33,12 @@ public class Start {
 		System.out.println("terminator 1 - " + terminator1);
 		System.out.println("terminator 2 - " + terminator2);
 		System.out.println("terminator 3 - " + terminator3);
+
+		// try replased-method
+		// terminator1.fire();
+
+		T1000robotPool pool = (T1000robotPool) context.getBean("t1000Pool");
+		pool.actionInPool();
 	}
 
 }

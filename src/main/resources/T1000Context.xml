@@ -37,9 +37,14 @@
 		<constructor-arg value="2012" />
 		<constructor-arg value="false" />
 
+	<!-- переопределение свойства -->
 <!-- 		<property name="head" ref="toshibaHead"></property> -->
 		<property name="hand" ref="toshibaHand"></property>
 		<!-- <property name="leg" ref="toshibaLeg"></property> -->
+		
+	<!-- переопределение метода (replased-method)
+	     dependency ((CGLIB)) -->	
+<!-- 	<replaced-method name="fire" replacer="actionReplaser"/>	 -->
 	</bean>
 
 
@@ -51,6 +56,9 @@
 	</bean>
 
 
+<!--бин для переопределение метода (replased-method)
+    ((dependency CGLIB)) -->
+<bean id="actionReplaser" class="ua.maventraing.compareoop.actions.ActionReplaser"/>
 
 
 	<bean id="t1000Empty" class="ua.maventraing.compareoop.robot.ModelT1000"
@@ -58,8 +66,12 @@
 		c:hand-ref="toshibaHand" c:leg-ref="toshibaLeg" lazy-init="true">
 		<!-- init-method="initObject" -->
 		<!-- destroy-method="destroyObject"> -->
-
 	</bean>
+	
+	
+	
+	
+	
 
 	<bean id="sonyHead" class="ua.maventraing.compareoop.spares.sonyspares.SonyHead" />
 	<bean id="sonyHand" class="ua.maventraing.compareoop.spares.sonyspares.SonyHand" />

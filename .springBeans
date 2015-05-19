@@ -11,6 +11,7 @@
 		<config>src/main/resources/T1000Context.xml</config>
 		<config>src/main/resources/dbContext.xml</config>
 		<config>src/main/resources/T1000ConveyorContext.xml</config>
+		<config>src/main/resources/T1000Pool.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>
