@@ -7,11 +7,9 @@
 	</configSuffixes>
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
-		<config>src/main/resources/All_Context.xml</config>
-		<config>src/main/resources/T1000Context.xml</config>
-		<config>src/main/resources/dbContext.xml</config>
-		<config>src/main/resources/T1000ConveyorContext.xml</config>
-		<config>src/main/resources/T1000Pool.xml</config>
+		<config>src/main/resources/all_context.xml</config>
+		<config>src/main/resources/toshiba_context.xml</config>
+		<config>src/main/resources/sony_context.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>
