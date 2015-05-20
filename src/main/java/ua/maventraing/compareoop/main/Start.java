@@ -36,9 +36,15 @@ public class Start {
 
 		// try replased-method
 		// terminator1.fire();
-
+		System.out.println("\n Map in Beans\n");
 		T1000robotPool pool = (T1000robotPool) context.getBean("t1000Pool");
-		pool.actionInPool();
+		// pool.actionInPool();
+		pool.action();
+		System.out.println("\n Select an Criteria (red) in Beans\n");
+		// SpEL //////////////////////
+		T1000robotPool redPool = (T1000robotPool) context.getBean("selectAnCriteriaRed");
+		redPool.showBegin();
+
 	}
 
 }
