@@ -9,7 +9,6 @@
 	<configs>
 		<config>src/main/resources/all_context.xml</config>
 		<config>src/main/resources/toshiba_context.xml</config>
-		<config>src/main/resources/sony_context.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

@@ -1,7 +1,11 @@
 package ua.maventraing.compareoop.spares.sonyspares;
 
+import org.springframework.stereotype.Component;
+
 import ua.maventraing.compareoop.interfaces.Hand;
 
+@Component
+// @Lazy
 public class SonyHand implements Hand {
 
 	public void inintHands() {

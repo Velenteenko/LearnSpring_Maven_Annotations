@@ -1,4 +1,4 @@
-package ua.maventraing.compareoop.robot;
+package ua.maventraing.compareoop.abstracts;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -10,10 +10,13 @@ import ua.maventraing.compareoop.interfaces.Robot;
 public abstract class BaseModel implements Robot {
 
 	@Autowired
+	// @Qualifier("toshibaHand")
 	private Hand hand;
 	@Autowired
+	// @Qualifier("sonyHead")
 	private Head head;
 	@Autowired
+	// @Qualifier("toshibaLeg")
 	private Leg leg;
 
 	public BaseModel() {
@@ -21,12 +24,12 @@ public abstract class BaseModel implements Robot {
 	}
 
 	// @Autowired
-	public BaseModel(Head head, Hand hand, Leg leg) {
-		this();
-		this.hand = hand;
-		this.head = head;
-		this.leg = leg;
-	}
+	// public BaseModel(Head head, Hand hand, Leg leg) {
+	// this();
+	// this.hand = hand;
+	// this.head = head;
+	// this.leg = leg;
+	// }
 
 	public Hand getHand() {
 		return hand;

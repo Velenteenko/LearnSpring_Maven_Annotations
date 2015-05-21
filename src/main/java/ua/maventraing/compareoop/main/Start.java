@@ -14,8 +14,15 @@ public class Start {
 
 		context = new ClassPathXmlApplicationContext("all_context.xml");
 
-		ModelT1000 t1000 = (ModelT1000) context.getBean("t1000");
-		t1000.fire();
+		ModelT1000 model1 = (ModelT1000) context.getBean("model1");
+		model1.fire();
+		System.out.println("Get new ModelT1000 from context: " + model1);
+
+		System.out.println("");
+
+		ModelT1000 model2 = (ModelT1000) context.getBean("model2");
+		model2.fire();
+		System.out.println("Get new ModelT1000 from context: " + model1);
 	}
 
 }

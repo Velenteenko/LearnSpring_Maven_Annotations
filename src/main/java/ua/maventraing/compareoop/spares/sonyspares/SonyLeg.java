@@ -1,7 +1,11 @@
 package ua.maventraing.compareoop.spares.sonyspares;
 
+import org.springframework.stereotype.Component;
+
 import ua.maventraing.compareoop.interfaces.Leg;
 
+@Component
+// @Lazy
 public class SonyLeg implements Leg {
 
 	public void initLegs() {

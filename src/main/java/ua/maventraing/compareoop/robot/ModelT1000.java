@@ -1,21 +1,46 @@
 package ua.maventraing.compareoop.robot;
 
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
+
+import ua.maventraing.compareoop.abstracts.BaseModel;
+import ua.maventraing.compareoop.enums.ColorSelector;
 import ua.maventraing.compareoop.interfaces.Hand;
 import ua.maventraing.compareoop.interfaces.Head;
 import ua.maventraing.compareoop.interfaces.Leg;
 
-public class ModelT1000 extends BaseModel {
+@Configuration
+// @Qualifier(value = "model1")
+public class ModelT1000 extends BaseModel implements InitializingBean, DisposableBean {
 
 	// private Hand hand;
 	// private Head head;
 	// private Leg leg;
 
-	private String color;
+	private ColorSelector color;
 	private int year;
 	private boolean soundEnabled;
 
 	public ModelT1000() {
 		// TODO Auto-generated constructor stub
+	}
+
+	@Bean
+	@Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+	public ModelT1000 model1() {
+		System.out.println("Return new object ModelT1000()");
+		return new ModelT1000();
+	}
+
+	@Bean
+	@Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+	public ModelT1000 model2() {
+		System.out.println("Return new object ModelT1000()");
+		return new ModelT1000(ColorSelector.BLACK, 2007, true);
 	}
 
 	// public ModelT1000(Head head, Hand hand, Leg leg) {
@@ -25,22 +50,19 @@ public class ModelT1000 extends BaseModel {
 	// this.leg = leg;
 	// }
 
-	public ModelT1000(String color, int year, boolean soundEnabled) {
+	public ModelT1000(ColorSelector color, int year, boolean soundEnabled) {
 		this.color = color;
 		this.year = year;
 		this.soundEnabled = soundEnabled;
 	}
 
-	public ModelT1000(Head head, Hand hand, Leg leg) {
-		super(head, hand, leg);
-		// TODO Auto-generated constructor stub
-	}
+	// public ModelT1000(Head head, Hand hand, Leg leg) {
+	// super(head, hand, leg);
+	// // TODO Auto-generated constructor stub
+	// }
 
-	public ModelT1000(Head head, Hand hand, Leg leg, String color, int year, boolean soundEnabled) {
-		super(head, hand, leg);
-		// this.hand = hand;
-		// this.head = head;
-		// this.leg = leg;
+	public ModelT1000(Head head, Hand hand, Leg leg, ColorSelector color, int year, boolean soundEnabled) {
+		// super(head, hand, leg);
 		this.color = color;
 		this.year = year;
 		this.soundEnabled = soundEnabled;
@@ -70,11 +92,11 @@ public class ModelT1000 extends BaseModel {
 	// this.leg = leg;
 	// }
 
-	public String getColor() {
+	public ColorSelector getColor() {
 		return color;
 	}
 
-	public void setColor(String color) {
+	public void setColor(ColorSelector color) {
 		this.color = color;
 	}
 
@@ -120,6 +142,18 @@ public class ModelT1000 extends BaseModel {
 
 	public void destroyObject() {
 		System.out.println("Destroy object T1000");
+	}
+
+	@Override
+	public void destroy() throws Exception {
+		System.out.println(this + " - destroy()");
+
+	}
+
+	@Override
+	public void afterPropertiesSet() throws Exception {
+		// TODO Auto-generated method stub
+		System.out.println(this + " - init()");
 	}
 
 }
